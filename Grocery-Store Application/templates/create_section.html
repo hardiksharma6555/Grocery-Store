@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Section</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Add Section</h1>
+        <form method="post" action="/section/create" class="mt-4">
+            <div class="form-group">
+                <label for="s_name">Section Name:</label>
+                <input name="s_name" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="s_description">Section Description:</label>
+                <input name="s_description" type="text" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Create Section</button>
+        </form>
+    </div>
+</body>
+</html>

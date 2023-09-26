@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Search Results for Products</h1>
+        <h2>Products Found:</h2>
+        
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td><a href="/section/{{ product.section_id }}/{{ uname }}/products">{{ product.product_name }}</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="/user/dashboard" class="btn btn-primary">Back to Dashboard</a>
+    </div>
+</body>
+</html>

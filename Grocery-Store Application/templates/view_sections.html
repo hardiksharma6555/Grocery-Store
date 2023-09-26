@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of all Sections</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2>List of all Sections</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>SNo</th>
+                    <th>Section Name</th>
+                    <th>Section Description</th>
+                    <th>View Products</th>
+                    <th>Section Summary</th>
+                    <th>Update Section</th>
+                    <th>Delete Section</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for section in all %}
+                <tr>
+                    <td>{{ section.section_id }}</td>
+                    <td>{{ section.section_name }}</td>
+                    <td>{{ section.section_description }}</td>
+                    <td>
+                        <form action="/section/{{ section.section_id }}/products" method="post">
+                            <input type="hidden" name="section_id" value="{{ section.section_id }}">
+                            <button type="submit" class="btn btn-primary">View Products</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/section/{{ section.section_id }}/summary" method="post">
+                            <input type = "hidden" name = "section_id" value="{{ section.section_id }}">
+                            <button type="submit" class="btn btn-primary">Section Summary</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/section/update" method="post">
+                            <button type="submit" class="btn btn-danger">Update</button>
+                        </form>
+                    </td>
+                    
+                    <td>
+                        <form action="/section/{{ section.section_id }}/delete" method="post">
+                            <input type="hidden" name="section_id" value="{{ section.section_id }}">
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

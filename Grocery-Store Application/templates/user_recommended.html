@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommended Products</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Recommended Products</h1>
+        
+        <h2 class="mt-4">Hello, {{ current_user.username }}!</h2>
+        
+        <h3 class="mt-4">Recommended Products:</h3>
+        <ul class="list-group">
+            {% for product in recommended_products %}
+                <li class="list-group-item">
+                    <strong>{{ product.product_name }}</strong>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Include Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

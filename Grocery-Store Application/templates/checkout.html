@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Checkout</h1>
+        
+        <h2>Items in Cart</h2>
+        <ul class="list-group">
+            {% for cart_item in cart_items %}
+                <li class="list-group-item">
+                    {{ cart_item.product_name }} - Quantity: {{ cart_item.product_qty }} - Amount: {{ cart_item.amount }}
+                </li>
+            {% endfor %}
+        </ul>
+        
+        <h2>Total Amount: {{ total_amount }}</h2>
+        
+        <form action="/checkout/{{ username }}" method="post">
+            <button class="btn btn-primary" type="submit">Confirm Checkout</button>
+        </form>
+        
+        <a class="btn btn-secondary" href="/user/dashboard">Back to Dashboard</a>
+    </div>
+</body>
+</html>

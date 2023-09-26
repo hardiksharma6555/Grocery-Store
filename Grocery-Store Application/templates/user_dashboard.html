@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>User Dashboard</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="/user/dashboard">Welcome to Your Dashboard, {{ uname }}!</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/cart">My Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/orders">Your Orders</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/user/recommended">Recommended for You</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Body Content -->
+    <div class="container mt-5">
+        <h2>Search for Sections</h2>
+        <form action="/sections/search/{{ uname }}" method="post">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="item" placeholder="Enter section name">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+        
+        <h2>Sections</h2>
+        <ul>
+            {% for section in s1 %}
+                <li><a href="/section/{{ section.section_id }}/{{ uname }}/products">{{ section.section_name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

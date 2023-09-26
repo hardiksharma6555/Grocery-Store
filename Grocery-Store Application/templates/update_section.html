@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Update Section</h2>
+        <form action="/section/update/{{ section_id }}" method="post">
+            <div class="form-group">
+                <label for="s_name">Section Name:</label>
+                <input type="text" class="form-control" name="section_name" value="{{ section.s_name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="s_description">Section Description:</label>
+                <input type="text" class="form-control" name="s_description" value="{{ section.s_description }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="products">Products:</label>
+                <select class="form-control" name="selected_products" multiple>
+                    {% for product in all_products %}
+                        <option value="{{ product.id }}" {% if product in section.products %}selected{% endif %}>{{ product.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+
+            <button type="submit" class="btn btn-primary">Update Section</button>
+        </form>
+    </div>
+</body>
+
+</html>

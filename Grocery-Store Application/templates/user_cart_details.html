@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Your Cart Details</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price per Unit</th>
+                    <th>Total Price</th>
+                    <th>Update Cart</th>
+                    <th>Delete from Cart</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in user_cart %}
+                <tr>
+                    <td>{{ item.product_name }}</td>
+                    <td>{{ item.product_qty }}</td>
+                    <td>{{ item.product_rate_per_unit }}</td>
+                    <td>{{ item.amount }}</td>
+                    <td>
+                        <a href="/user/cart/update/{{ uname }}/{{ item.item_id }}"
+                            class="btn btn-primary btn-sm">Update Cart</a>
+                    </td>
+                    <td>
+                        <a href="/item/{{ username }}/{{ item.item_id }}/delete" class="btn btn-danger btn-sm">Delete
+                            from Cart</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/user/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+        <a href="/checkout/<string:username:" class="btn btn-success">Proceed to Checkout</a>
+    </div>
+</body>
+
+</html>

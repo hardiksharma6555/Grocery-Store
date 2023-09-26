@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Include Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+<body>
+    <div class="container mt-5">
+        <h1>Products in Section: {{ s1.section_name }}</h1>
+
+        <h2 class="mt-4">Search for Products</h2>
+        <form class="form-inline" action="/products/search/{{ uname }}" method="post">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" name="item" placeholder="Enter product name" aria-label="Search product">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+
+        <h2 class="mt-4">Product List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Manufacture Date</th>
+                    <th>Expiry Date</th>
+                    <th>Rate Per Unit</th>
+                    <th>Unit</th>
+                    <th>Stock</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                <tr>
+                    <td>{{ item.product_name }}</td>
+                    <td>{{ item.product_manufacture_date }}</td>
+                    <td>{{ item.product_expiry_date }}</td>
+                    <td>{{ item.product_rate_per_unit }}</td>
+                    <td>{{ item.product_unit }}</td>
+                    <td>{{ item.product_stock }}</td>
+                    <td>
+                        {% if item.product_stock > 0 %}
+                        <form action="/products/{{ item.product_id}}/{{ uname }}/add_to_cart" method="post">
+                            <input type="number" class="form-control" name="product_qty" min="1" value="1">
+                            <input type="hidden" name="product_id" value="{{ item.product_id }}">
+                            <button type="submit" class="btn btn-success">Add to Cart</button>
+                        </form>
+                        {% else %}
+                        <button type="button" class="btn btn-danger" disabled>Out of Stock</button>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <a href="/user/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</body>
+</html>

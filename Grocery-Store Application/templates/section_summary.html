@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Section Summary</title>
+</head>
+<body>
+    <h1>Section Summary</h1>
+    
+    <h2>{{ section.section_name }} Section</h2>
+    
+    <h3>Total Stock:</h3>
+    <p>{{ total_stock }}</p>
+    
+    <img src="{{ url_for('static', filename='section_summary.png') }}" alt="Section Summary Chart">
+</body>
+</html>

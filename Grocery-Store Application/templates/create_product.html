@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Add Product</h1>
+        <form method="post" action="/product/create" class="mt-4">
+            <div class="form-group">
+                <label for="p_name">Product Name:</label>
+                <input name="p_name" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="p_mnf_date">Product Manufacturing Date:</label>
+                <input name="p_mnf_date" type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="p_exp_date">Product Expiry Date:</label>
+                <input name="p_exp_date" type="date" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="p_rate_unit">Rate of Each Unit in ₹:</label>
+                <input name="p_rate_unit" type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="p_unit">Unit of Product:</label>
+                <input name="p_unit" type="text" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="p_stock">Remaining Stock of Product:</label>
+                <input name="p_stock" type="number" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="p_section_name">Section Name of Product:</label>
+                <!-- Use a select input for section name with options dynamically generated from the database -->
+                <select name="p_section_name" class="form-control" required>
+                    {% for section in sections %}
+                        <option value="{{ section.section_name }}">{{ section.section_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>            
+            <button type="submit" class="btn btn-primary">Create Product</button>
+        </form>
+    </div>
+</body>
+</html>

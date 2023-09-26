@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Enter Coupon Code</h2>
+        <form action="/add_to_cart/coupon/{{ uname }}/{{ i1.item_id }}" method="post">
+            <div class="mb-3">
+                <label for="coupon_code" class="form-label">Coupon Code:</label>
+                <input type="text" name="coupon_code" class="form-control" required>
+            </div>            
+            <button type="submit" class="btn btn-primary">Add Coupon</button>
+        </form>
+        <a href="/user/dashboard" class="btn btn-secondary">Back to Dashboard</a>
+    </div>
+</body>
+
+</html>

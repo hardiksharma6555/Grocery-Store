@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manager Login</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Manager Login</h2>
+        {% if error %}
+        <p class="text-danger">{{ error }}</p>
+        {% endif %}
+        <form method="post" class="mt-4">
+            <div class="form-group">
+                <label for="m_name">Username:</label>
+                <input type="text" id="m_name" name="m_name" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="m_password">Password:</label>
+                <input type="password" id="m_password" name="m_password" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+        </form>
+    </div>
+</body>
+</html>

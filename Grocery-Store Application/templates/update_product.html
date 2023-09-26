@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Update Product</h2>
+        <form action="" method="post">
+            <div class="form-group">
+                <label for="product_name">Product Name:</label>
+                <input type="text" class="form-control" name="product_name" value="{{ product.product_name }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product_manufacture_date">Manufacture Date:</label>
+                <input type="date" class="form-control" name="product_manufacture_date"
+                    value="{{ product.product_manufacture_date.strftime('%Y-%m-%d') }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product_expiry_date">Expiry Date:</label>
+                <input type="date" class="form-control" name="product_expiry_date"
+                    value="{{ product.product_expiry_date.strftime('%Y-%m-%d') }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product_rate_per_unit">Rate per Unit:</label>
+                <input type="text" class="form-control" name="product_rate_per_unit"
+                    value="{{ product.product_rate_per_unit }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product_unit">Product Unit:</label>
+                <input type="text" class="form-control" name="product_unit" value="{{ product.product_unit }}" required>
+            </div>
+
+            <div class="form-group">
+                <label for="product_stock">Product Stock:</label>
+                <input type="text" class="form-control" name="product_stock" value="{{ product.product_stock }}"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label for="section_id">Section ID:</label>
+                <input type="text" class="form-control" name="section_id" value="{{ product.section_id }}" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Update Product</button>
+        </form>
+    </div>
+</body>
+
+</html>
