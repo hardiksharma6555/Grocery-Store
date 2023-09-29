@@ -374,7 +374,7 @@ def register_user():
             db.session.add(new_user)
             db.session.commit()
             flash('Account registered successfully. You can now log in.')
-            return redirect("/user/login")  # Redirect to the login page after successful registration
+            return redirect("/user")  # Redirect to the login page after successful registration
 
     return render_template('register_user.html')
 
